@@ -29,38 +29,37 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .result-box input{flex:1;background:none;border:none;outline:none;color:#166534;font-weight:600;font-size:14px}
 .btn-copy{padding:8px 20px;background:#16A34A;color:#FFF;border:none;border-radius:8px;font-weight:700;cursor:pointer}
 .error{display:none;color:#DC2626;background:#FEF2F2;padding:12px;border-radius:12px;font-size:13px;font-weight:600;margin-top:12px;text-align:center}
-.social-section{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.social-card{background:#FFF;padding:20px;border-radius:20px;text-align:center;border:1px solid #E2E8F0;text-decoration:none;transition:0.3s}
-.social-card:hover{border-color:var(--primary);transform:translateY(-3px)}
-.social-card.fb{border-bottom:4px solid #1877F2}
-.social-card.zalo{border-bottom:4px solid #0068FF}
-.social-card img{width:100px;height:100px;margin-top:10px;border-radius:8px}
-.social-card span{display:block;font-weight:700;font-size:14px;color:var(--text)}
+.social-section{margin-top:32px;display:grid;grid-template-columns:1fr;gap:16px}
+.social-card{background:#FFF;padding:20px;border-radius:20px;text-align:center;border:1px solid #E2E8F0;text-decoration:none;transition:0.3s;display:flex;flex-direction:column;align-items:center;gap:10px}
+.social-card.fb{border-left:5px solid #1877F2}
+.social-card.zalo{border-left:5px solid #0068FF}
+.social-card img{width:150px;height:150px;border-radius:12px;border:1px solid #EEE}
+.social-card span{font-weight:800;font-size:16px}
+.btn-join{background:#1877F2;color:#FFF;padding:10px 24px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none}
+.zalo-btn{background:#0068FF}
 .footer{text-align:center;margin-top:40px;color:var(--subtext);font-size:12px;font-weight:600}
 </style>
 </head>
 <body>
 <div class="container">
     <div class="header">
-        <div class="stats-badge">🚀 Đã giúp tạo <span id="convert-count">0</span> link thành công</div>
-        <h1>Shopee Convert</h1>
-        <p>Hệ thống tự động gắn mã Affiliate VietDak</p>
+        <div class="stats-badge">🚀 Hệ thống đã xử lý <span id="convert-count">0</span> link</div>
+        <h1>VietDak Admin</h1>
+        <p>Công cụ chuyển đổi link Shopee Affiliate chuyên nghiệp</p>
     </div>
 
     <div class="card">
         <div class="input-group">
-            <label class="label">Nhập link Shopee của bạn</label>
+            <label class="label">Dán link Shopee vào đây (Hỗ trợ mọi định dạng)</label>
             <div class="input-box">
-                <input type="text" id="link" placeholder="Dán link sản phẩm hoặc link rút gọn..." autocomplete="off">
+                <input type="text" id="link" placeholder="vn.shp.ee, s.shopee.vn, hoặc link web..." autocomplete="off">
                 <button class="btn-paste" onclick="doPaste()">📋</button>
             </div>
         </div>
-        
-        <button class="btn-convert" id="go-btn" onclick="convert()">Bắt đầu chuyển đổi</button>
+        <button class="btn-convert" id="go-btn" onclick="convert()">Tạo link Affiliate</button>
         <div id="err" class="error"></div>
-
         <div id="result-area">
-            <label class="label">Link đã gắn mã thành công:</label>
+            <label class="label">Kết quả của bạn:</label>
             <div class="result-box">
                 <input type="text" id="result" readonly>
                 <button class="btn-copy" id="copy-btn" onclick="doCopy()">Copy</button>
@@ -69,23 +68,23 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
     </div>
 
     <div class="social-section">
-        <a href="https://www.facebook.com/groups/1731832854456702/" target="_blank" class="social-card fb">
-            <span>Group Facebook</span>
-            <small style="color:#1877F2">Tham gia hỗ trợ</small>
-        </a>
+        <div class="social-card fb">
+            <span>Cộng đồng Facebook</span>
+            <a href="https://www.facebook.com/groups/1731832854456702/" target="_blank" class="btn-join">Tham gia ngay</a>
+        </div>
         <div class="social-card zalo">
-            <span>Group Zalo</span>
-            <a href="https://zalo.me/g/svdjxc658" target="_blank" style="text-decoration:none;font-size:12px;color:#0068FF;display:block;margin-bottom:5px">Vào Nhóm Zalo</a>
+            <span>Cộng đồng Zalo</span>
             <img src="zalo-qr.jpg" alt="Zalo QR">
+            <a href="https://zalo.me/g/svdjxc658" target="_blank" class="btn-join zalo-btn">Vào nhóm Zalo</a>
         </div>
     </div>
 
-    <div class="footer">VIETDAK SYSTEM &copy; 2026</div>
+    <div class="footer">VIETDAK GROUP &copy; 2026</div>
 </div>
 
 <script>
 var AFF_ID = "17306040278";
-var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRXwdYx-wzNwLkeij2gMLOPI5anJWHFSfARQbtvWJDKp0DfiVC7Yr97trihOOKjC_X/exec";
+var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_kSLTmtq0gkCIzgA--heCRXXbquJ2OqRoySYV9V2ng56zoBFdzjUUaIRVgObVS88G/exec";
 
 async function init(){
     try{
@@ -104,7 +103,6 @@ function build(link){
     if(m1){s=m1[1]; i=m1[2]}
     else if(m2){s=m2[1]; i=m2[2]}
     else if(m3){s=m3[1]; i=m3[2]}
-    
     if(s && i){
         let o = "https://shopee.vn/product/"+s+"/"+i;
         return "https://s.shopee.vn/an_redir?origin_link="+o+"&affiliate_id="+AFF_ID+"&sub_id=githubtool";
@@ -115,43 +113,38 @@ function build(link){
 async function convert(){
     let val = document.getElementById("link").value.trim();
     if(!val) return;
-    
     let btn = document.getElementById("go-btn");
     let err = document.getElementById("err");
     let resArea = document.getElementById("result-area");
-    
     btn.disabled = true;
-    btn.innerText = "Đang xử lý dữ liệu...";
+    btn.innerText = "Đang xử lý...";
     err.style.display = "none";
     resArea.style.display = "none";
-
     let final = "";
     let isShort = val.includes("shp.ee") || val.includes("s.shopee.vn") || (!val.includes("product/") && !val.includes("-i."));
-
     if(isShort && !val.includes("an_redir")){
         try{
             const r = await fetch(SCRIPT_URL+"?short_url="+encodeURIComponent(val));
             const d = await r.json();
             document.getElementById("convert-count").innerText = d.total_conversions;
             final = build(d.long_url);
-        }catch(e){ alert("Lỗi kết nối máy chủ!") }
+        }catch(e){ alert("Lỗi kết nối Server!") }
     } else if(val.includes("an_redir")){
         final = val;
     } else {
         final = build(val);
         if(final) fetch(SCRIPT_URL+"?short_url=count_only");
     }
-
     if(final){
         document.getElementById("result").value = final;
         resArea.style.display = "block";
         doCopy();
     } else {
         err.style.display = "block";
-        err.innerText = "⚠️ Link không hợp lệ hoặc không tìm thấy sản phẩm.";
+        err.innerText = "⚠️ Link không hợp lệ hoặc không có ID sản phẩm.";
     }
     btn.disabled = false;
-    btn.innerText = "Bắt đầu chuyển đổi";
+    btn.innerText = "Tạo link Affiliate";
 }
 
 function doCopy(){
@@ -159,7 +152,7 @@ function doCopy(){
     i.select();
     navigator.clipboard.writeText(i.value);
     let b = document.getElementById("copy-btn");
-    b.innerText = "Xong!";
+    b.innerText = "OK!";
     setTimeout(()=>{b.innerText="Copy"}, 2000);
 }
 
