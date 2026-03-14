@@ -3,162 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shopee Affiliate Tool</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>VietDak Affiliate Tool</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Nunito',Arial,sans-serif;background:#FDF0EB;min-height:100vh;padding:32px 16px 60px;}
-.wrap{max-width:560px;margin:auto;}
-.hero{text-align:center;margin-bottom:28px;}
-.logo-ring{width:64px;height:64px;border-radius:50%;background:#EE4D2D;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 4px 18px rgba(238,77,45,0.28);}
-.logo-ring svg{width:32px;height:32px;fill:white;}
-.hero h1{font-size:26px;font-weight:800;color:#C0351A;letter-spacing:-0.5px;}
-.hero p{font-size:14px;color:#B06050;margin-top:4px;}
-.stats-bar {text-align:center;background:#fff5f2;border:1px dashed #ee4d2d;border-radius:14px;padding:10px;margin-bottom:20px;font-size:14px;color:#ee4d2d;font-weight:700;}
-#convert-count {font-size:18px;color:#c0351a;}
-.card{background:white;border-radius:24px;padding:28px 24px;box-shadow:0 8px 32px rgba(180,80,50,0.10);}
-.step-label{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#B06050;text-transform:uppercase;margin-bottom:10px;}
-.step-num{width:20px;height:20px;border-radius:50%;background:#FDE8E2;color:#C0351A;font-size:11px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;}
-.input-wrap{display:flex;align-items:center;background:#FDF6F4;border:2px solid #F5C4B0;border-radius:14px;overflow:hidden;}
-.input-wrap input{flex:1;padding:14px 16px;border:none;outline:none;background:transparent;font-family:'Nunito',Arial,sans-serif;font-size:14px;}
-.paste-btn{padding:12px 16px;background:transparent;border:none;cursor:pointer;border-left:2px solid #F5C4B0;font-size:20px;}
-.go-btn{width:100%;margin-top:14px;padding:16px;background:#EE4D2D;color:white;border:none;border-radius:14px;cursor:pointer;font-family:'Nunito',Arial,sans-serif;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:8px;}
-.go-btn:disabled{background:#ccc;}
-.divider{display:flex;align-items:center;gap:10px;margin:20px 0;color:#D4A090;font-size:13px;}
-.divider::before,.divider::after{content:"";flex:1;height:1px;background:#F5DDD5;}
-.result-area{display:none;}
-.result-box{background:#F0FFF8;border:2px solid #86EFAC;border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:10px;}
-.result-box input{flex:1;border:none;outline:none;background:transparent;font-size:13px;color:#166534;font-weight:600;}
-.copy-btn{padding:9px 18px;background:#16A34A;color:white;border:none;border-radius:10px;cursor:pointer;font-weight:700;}
-.err{display:none;margin-top:12px;padding:12px 16px;background:#FFF1F0;border:1.5px solid #FECACA;border-radius:12px;font-size:13px;color:#991B1B;font-weight:600;}
-.guide{background:#FDF6F4;border-radius:18px;padding:20px;margin-top:20px;}
-.guide-title{font-size:15px;font-weight:800;color:#C0351A;margin-bottom:14px;}
-.step-row{display:flex;gap:12px;margin-bottom:10px;}
-.step-icon{width:32px;height:32px;border-radius:50%;background:#FDE8E2;color:#C0351A;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.step-text{font-size:14px;color:#7a4030;line-height:1.5;}
-.fb-btn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;background:#1877f2;color:white;border-radius:10px;text-decoration:none;font-size:14px;font-weight:700;}
-.fb-btn svg{width:16px;height:16px;fill:white;}
-.qr-box{margin-top:20px;background:white;border-radius:24px;padding:24px;text-align:center;box-shadow:0 8px 32px rgba(180, 80, 50, 0.10);border: 2px solid #0068ff;}
-.qr-img{width:220px;max-width:100%;border-radius:14px;margin: 10px 0;}
-.zalo-link{display:block;padding:12px;background:#0068ff;color:white;text-decoration:none;border-radius:12px;font-weight:700;margin-bottom:10px;}
-.footer{text-align:center;margin-top:20px;font-size:12px;color:#C8A090;}
+:root{--primary:#EE4D2D;--primary-dark:#C0351A;--bg:#F8FAFC;--card:#FFFFFF;--text:#1E293B;--subtext:#64748B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:40px 16px}
+.container{max-width:520px;margin:0 auto}
+.header{text-align:center;margin-bottom:32px}
+.header h1{font-size:28px;font-weight:800;color:var(--primary);margin-bottom:8px}
+.header p{color:var(--subtext);font-size:15px}
+.stats-badge{display:inline-block;background:#FFEFEA;color:var(--primary);padding:6px 16px;border-radius:100px;font-weight:700;font-size:13px;margin-bottom:24px}
+.card{background:var(--card);border-radius:24px;padding:32px;box-shadow:0 10px 25px rgba(0,0,0,0.05);border:1px solid #E2E8F0}
+.input-group{margin-bottom:20px}
+.label{display:block;font-weight:700;font-size:14px;margin-bottom:8px;color:var(--text)}
+.input-box{display:flex;background:#F1F5F9;border:2px solid #E2E8F0;border-radius:16px;overflow:hidden;transition:0.3s}
+.input-box:focus-within{border-color:var(--primary);background:#FFF}
+.input-box input{flex:1;padding:16px;border:none;outline:none;background:transparent;font-size:15px;font-family:inherit}
+.btn-paste{padding:0 16px;background:none;border:none;cursor:pointer;font-size:20px}
+.btn-convert{width:100%;padding:16px;background:var(--primary);color:#FFF;border:none;border-radius:16px;font-size:16px;font-weight:700;cursor:pointer;transition:0.3s;box-shadow:0 4px 12px rgba(238,77,45,0.25)}
+.btn-convert:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.btn-convert:disabled{background:#CBD5E1;box-shadow:none;cursor:not-allowed}
+#result-area{display:none;margin-top:24px;padding-top:24px;border-top:1px dashed #E2E8F0}
+.result-box{display:flex;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;padding:12px;gap:12px;align-items:center}
+.result-box input{flex:1;background:none;border:none;outline:none;color:#166534;font-weight:600;font-size:14px}
+.btn-copy{padding:8px 20px;background:#16A34A;color:#FFF;border:none;border-radius:8px;font-weight:700;cursor:pointer}
+.error{display:none;color:#DC2626;background:#FEF2F2;padding:12px;border-radius:12px;font-size:13px;font-weight:600;margin-top:12px;text-align:center}
+.social-section{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.social-card{background:#FFF;padding:20px;border-radius:20px;text-align:center;border:1px solid #E2E8F0;text-decoration:none;transition:0.3s}
+.social-card:hover{border-color:var(--primary);transform:translateY(-3px)}
+.social-card.fb{border-bottom:4px solid #1877F2}
+.social-card.zalo{border-bottom:4px solid #0068FF}
+.social-card img{width:100px;height:100px;margin-top:10px;border-radius:8px}
+.social-card span{display:block;font-weight:700;font-size:14px;color:var(--text)}
+.footer{text-align:center;margin-top:40px;color:var(--subtext);font-size:12px;font-weight:600}
 </style>
 </head>
 <body>
-<div class="wrap">
-    <div class="hero">
-        <div class="logo-ring"><svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></div>
-        <h1>Tạo link Shopee</h1>
-        <p>Hệ thống xử lý link thông minh</p>
+<div class="container">
+    <div class="header">
+        <div class="stats-badge">🚀 Đã giúp tạo <span id="convert-count">0</span> link thành công</div>
+        <h1>Shopee Convert</h1>
+        <p>Hệ thống tự động gắn mã Affiliate VietDak</p>
     </div>
-    <div class="stats-bar">🚀 Tổng cộng <span id="convert-count">0</span> lượt tạo thành công</div>
+
     <div class="card">
-        <div class="step-label"><span class="step-num">1</span>Dán link sản phẩm</div>
-        <div class="input-wrap">
-            <input id="link" type="text" placeholder="Dán link Shopee bất kỳ..." />
-            <button class="paste-btn" onclick="doPaste()">📋</button>
-        </div>
-        <button class="go-btn" id="go-btn" onclick="convert()">Tạo link ngay</button>
-        <div class="err" id="err"></div>
-        <div class="result-area" id="result-area">
-            <div class="divider">Kết quả</div>
-            <div class="result-box">
-                <input id="result" type="text" readonly />
-                <button class="copy-btn" id="copy-btn" onclick="doCopy()">Copy</button>
+        <div class="input-group">
+            <label class="label">Nhập link Shopee của bạn</label>
+            <div class="input-box">
+                <input type="text" id="link" placeholder="Dán link sản phẩm hoặc link rút gọn..." autocomplete="off">
+                <button class="btn-paste" onclick="doPaste()">📋</button>
             </div>
         </div>
-        <div class="divider"></div>
-        <div class="guide">
-            <div class="guide-title">Hướng dẫn</div>
-            <div class="step-row"><div class="step-icon">1</div><div class="step-text">Dán link (rút gọn hoặc link web).</div></div>
-            <div class="step-row"><div class="step-icon">2</div><div class="step-text">Hệ thống tự động tìm link gốc và chuyển đổi.</div></div>
-            <a class="fb-btn" href="https://www.facebook.com/groups/1731832854456702/" target="_blank">
-                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                Group Facebook
-            </a>
-        </div>
-        <div class="qr-box">
-            <a href="https://zalo.me/g/svdjxc658" target="_blank" class="zalo-link">Vào nhóm Zalo hỗ trợ</a>
-            <img src="zalo-qr.jpg" class="qr-img" alt="Zalo QR" />
+        
+        <button class="btn-convert" id="go-btn" onclick="convert()">Bắt đầu chuyển đổi</button>
+        <div id="err" class="error"></div>
+
+        <div id="result-area">
+            <label class="label">Link đã gắn mã thành công:</label>
+            <div class="result-box">
+                <input type="text" id="result" readonly>
+                <button class="btn-copy" id="copy-btn" onclick="doCopy()">Copy</button>
+            </div>
         </div>
     </div>
-    <div class="footer">© Shopee Affiliate Tool</div>
+
+    <div class="social-section">
+        <a href="https://www.facebook.com/groups/1731832854456702/" target="_blank" class="social-card fb">
+            <span>Group Facebook</span>
+            <small style="color:#1877F2">Tham gia hỗ trợ</small>
+        </a>
+        <div class="social-card zalo">
+            <span>Group Zalo</span>
+            <a href="https://zalo.me/g/svdjxc658" target="_blank" style="text-decoration:none;font-size:12px;color:#0068FF;display:block;margin-bottom:5px">Vào Nhóm Zalo</a>
+            <img src="zalo-qr.jpg" alt="Zalo QR">
+        </div>
+    </div>
+
+    <div class="footer">VIETDAK SYSTEM &copy; 2026</div>
 </div>
+
 <script>
 var AFF_ID = "17306040278";
-var GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzmMd2DYlsKqoEmnK1xjs3TK1zR1n8HIpJAn7C_D0_Jlp7ap1LUl63W5J1_G8pHv2bo/exec";
-async function initStats() {
-    try {
-        const res = await fetch(GOOGLE_SCRIPT_URL + "?short_url=check");
-        const data = await res.json();
-        document.getElementById("convert-count").innerText = data.total_conversions;
-    } catch (e) {}
+var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRXwdYx-wzNwLkeij2gMLOPI5anJWHFSfARQbtvWJDKp0DfiVC7Yr97trihOOKjC_X/exec";
+
+async function init(){
+    try{
+        const r = await fetch(SCRIPT_URL+"?short_url=check");
+        const d = await r.json();
+        document.getElementById("convert-count").innerText = d.total_conversions;
+    }catch(e){}
 }
-initStats();
-function buildRawLink(link) {
-    let shopid = "";
-    let itemid = "";
+init();
+
+function build(link){
+    let s="", i="";
     let m1 = link.match(/product\/(\d+)\/(\d+)/);
     let m2 = link.match(/-i\.(\d+)\.(\d+)/);
-    let sid = link.match(/[?&]shopid=(\d+)/);
-    let iid = link.match(/[?&]itemid=(\d+)/);
-    if (m1) { shopid = m1[1]; itemid = m1[2]; }
-    else if (m2) { shopid = m2[1]; itemid = m2[2]; }
-    else if (sid && iid) { shopid = sid[1]; itemid = iid[1]; }
-    if (shopid && itemid) {
-        let origin = "https://shopee.vn/product/" + shopid + "/" + itemid;
-        return "https://s.shopee.vn/an_redir?origin_link=" + origin + "&affiliate_id=" + AFF_ID + "&sub_id=githubtool";
+    let m3 = link.match(/\/(\d+)\/(\d+)(?:\?|$)/);
+    if(m1){s=m1[1]; i=m1[2]}
+    else if(m2){s=m2[1]; i=m2[2]}
+    else if(m3){s=m3[1]; i=m3[2]}
+    
+    if(s && i){
+        let o = "https://shopee.vn/product/"+s+"/"+i;
+        return "https://s.shopee.vn/an_redir?origin_link="+o+"&affiliate_id="+AFF_ID+"&sub_id=githubtool";
     }
     return null;
 }
-async function convert() {
-    let input = document.getElementById("link").value.trim();
-    if (!input) return;
+
+async function convert(){
+    let val = document.getElementById("link").value.trim();
+    if(!val) return;
+    
     let btn = document.getElementById("go-btn");
+    let err = document.getElementById("err");
+    let resArea = document.getElementById("result-area");
+    
     btn.disabled = true;
-    btn.innerText = "Đang xử lý...";
-    document.getElementById("err").style.display = "none";
-    let finalLink = "";
-    let needsExpand = input.includes("vn.shp.ee") || input.includes("s.shopee.vn") || (!input.includes("product/") && !input.includes("-i."));
-    if (needsExpand && !input.includes("an_redir")) {
-        try {
-            const res = await fetch(GOOGLE_SCRIPT_URL + "?short_url=" + encodeURIComponent(input));
-            const data = await res.json();
-            document.getElementById("convert-count").innerText = data.total_conversions;
-            finalLink = buildRawLink(data.long_url);
-        } catch (e) {
-            alert("Lỗi server giải mã!");
-        }
-    } 
-    else if (input.includes("an_redir")) {
-        finalLink = input;
+    btn.innerText = "Đang xử lý dữ liệu...";
+    err.style.display = "none";
+    resArea.style.display = "none";
+
+    let final = "";
+    let isShort = val.includes("shp.ee") || val.includes("s.shopee.vn") || (!val.includes("product/") && !val.includes("-i."));
+
+    if(isShort && !val.includes("an_redir")){
+        try{
+            const r = await fetch(SCRIPT_URL+"?short_url="+encodeURIComponent(val));
+            const d = await r.json();
+            document.getElementById("convert-count").innerText = d.total_conversions;
+            final = build(d.long_url);
+        }catch(e){ alert("Lỗi kết nối máy chủ!") }
+    } else if(val.includes("an_redir")){
+        final = val;
+    } else {
+        final = build(val);
+        if(final) fetch(SCRIPT_URL+"?short_url=count_only");
     }
-    else {
-        finalLink = buildRawLink(input);
-        fetch(GOOGLE_SCRIPT_URL + "?short_url=count_only"); 
-    }
-    if (finalLink) {
-        document.getElementById("result").value = finalLink;
-        document.getElementById("result-area").style.display = "block";
+
+    if(final){
+        document.getElementById("result").value = final;
+        resArea.style.display = "block";
         doCopy();
     } else {
-        document.getElementById("err").style.display = "block";
-        document.getElementById("err").innerText = "⚠️ Không tìm thấy thông tin sản phẩm.";
+        err.style.display = "block";
+        err.innerText = "⚠️ Link không hợp lệ hoặc không tìm thấy sản phẩm.";
     }
     btn.disabled = false;
-    btn.innerText = "Tạo link ngay";
+    btn.innerText = "Bắt đầu chuyển đổi";
 }
-function doCopy() {
-    var inp = document.getElementById("result");
-    inp.select();
-    navigator.clipboard.writeText(inp.value);
-    document.getElementById("copy-btn").innerText = "✓";
-    setTimeout(() => { document.getElementById("copy-btn").innerText = "Copy"; }, 2000);
+
+function doCopy(){
+    let i = document.getElementById("result");
+    i.select();
+    navigator.clipboard.writeText(i.value);
+    let b = document.getElementById("copy-btn");
+    b.innerText = "Xong!";
+    setTimeout(()=>{b.innerText="Copy"}, 2000);
 }
-async function doPaste() {
-    try {
+
+async function doPaste(){
+    try{
         document.getElementById("link").value = await navigator.clipboard.readText();
-    } catch (e) {}
+    }catch(e){}
 }
 </script>
 </body>
