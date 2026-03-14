@@ -36,8 +36,9 @@ body{font-family:'Nunito',Arial,sans-serif;background:#FDF0EB;min-height:100vh;p
 .step-row{display:flex;gap:12px;margin-bottom:10px;}
 .step-icon{width:32px;height:32px;border-radius:50%;background:#FDE8E2;color:#C0351A;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .step-text{font-size:14px;color:#7a4030;line-height:1.5;}
-.qr-box{margin-top:20px;background:white;border-radius:24px;padding:24px;text-align:center;box-shadow:0 8px 32px rgba(180,80,50,0.10);}
-.qr-img{width:260px;max-width:100%;border-radius:14px;}
+.qr-box{margin-top:20px;background:white;border-radius:24px;padding:24px;text-align:center;box-shadow:0 8px 32px rgba(180, 80, 50, 0.10);border: 2px solid #0068ff;}
+.qr-img{width:220px;max-width:100%;border-radius:14px;margin: 10px 0;}
+.zalo-link{display:block;padding:12px;background:#0068ff;color:white;text-decoration:none;border-radius:12px;font-weight:700;margin-bottom:10px;}
 .footer{text-align:center;margin-top:20px;font-size:12px;color:#C8A090;}
 </style>
 </head>
@@ -46,15 +47,15 @@ body{font-family:'Nunito',Arial,sans-serif;background:#FDF0EB;min-height:100vh;p
     <div class="hero">
         <div class="logo-ring"><svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></div>
         <h1>Tạo link Shopee</h1>
-        <p>Hệ thống tự động gắn mã Affiliate 2026</p>
+        <p>Hệ thống hỗ trợ gắn link miễn phí</p>
     </div>
 
     <div class="stats-bar">🚀 Tổng cộng <span id="convert-count">0</span> lượt tạo thành công</div>
 
     <div class="card">
-        <div class="step-label"><span class="step-num">1</span>Dán link Shopee</div>
+        <div class="step-label"><span class="step-num">1</span>Dán link sản phẩm</div>
         <div class="input-wrap">
-            <input id="link" type="text" placeholder="Dán link sản phẩm Shopee vào đây..." />
+            <input id="link" type="text" placeholder="Dán link Shopee vào đây..." />
             <button class="paste-btn" onclick="doPaste()">📋</button>
         </div>
         <button class="go-btn" id="go-btn" onclick="convert()">Tạo link ngay</button>
@@ -69,16 +70,17 @@ body{font-family:'Nunito',Arial,sans-serif;background:#FDF0EB;min-height:100vh;p
         <div class="divider"></div>
         <div class="guide">
             <div class="guide-title">Hướng dẫn sử dụng</div>
-            <div class="step-row"><div class="step-icon">1</div><div class="step-text">Hệ thống hỗ trợ cả link rút gọn <b>vn.shp.ee</b> và link web <b>shopee.vn</b>.</div></div>
-            <div class="step-row"><div class="step-icon">2</div><div class="step-text">Sau khi tạo, link sẽ tự động được copy vào bộ nhớ đệm của bạn.</div></div>
-            <div class="step-row"><div class="step-icon">3</div><div class="step-text">Dán link vào Youtube/Facebook để bắt đầu nhận hoa hồng Affiliate.</div></div>
+            <div class="step-row"><div class="step-icon">1</div><div class="step-text">Dán link sản phẩm Shopee vào ô trên.</div></div>
+            <div class="step-row"><div class="step-icon">2</div><div class="step-text">Hệ thống tự động copy link sau khi tạo.</div></div>
+            <div class="step-row"><div class="step-icon">3</div><div class="step-text">Tham gia cộng đồng bên dưới để được hỗ trợ gắn link tự động.</div></div>
         </div>
         <div class="qr-box">
-            <img src="zalo-qr.jpg" class="qr-img" />
-            <div style="margin-top:10px; color:#888; font-size:13px">Quét mã tham gia Zalo hỗ trợ 24/7</div>
+            <a href="https://zalo.me/g/svdjxc658" target="_blank" class="zalo-link">Bấm vào đây để vào nhóm Zalo</a>
+            <img src="zalo-qr.jpg" class="qr-img" alt="Zalo QR" />
+            <div style="color:#666; font-size:12px">Hoặc quét mã QR để tham gia cộng đồng</div>
         </div>
     </div>
-    <div class="footer">© Shopee Affiliate Tool - Deploy on GitHub</div>
+    <div class="footer">© Shopee Affiliate Tool</div>
 </div>
 
 <script>
@@ -94,26 +96,19 @@ async function initStats() {
 }
 initStats();
 
-// Hàm trích xuất và tạo link theo đúng định dạng Universal Link s.shopee.vn
-function buildAffiliateLink(link) {
+function buildRawLink(link) {
     let shopid = "";
     let itemid = "";
-    
-    // Pattern 1: shopee.vn/product/123/456
     let m1 = link.match(/product\/(\d+)\/(\d+)/);
-    // Pattern 2: shopee.vn/something-i.123.456
     let m2 = link.match(/-i\.(\d+)\.(\d+)/);
-    // Pattern 3: shopee.vn/something?shopid=123&itemid=456
     let sid = link.match(/[?&]shopid=(\d+)/);
     let iid = link.match(/[?&]itemid=(\d+)/);
-
     if (m1) { shopid = m1[1]; itemid = m1[2]; }
     else if (m2) { shopid = m2[1]; itemid = m2[2]; }
     else if (sid && iid) { shopid = sid[1]; itemid = iid[1]; }
-
     if (shopid && itemid) {
-        let origin = `https://shopee.vn/product/${shopid}/${itemid}`;
-        return `https://s.shopee.vn/an_redir?origin_link=${encodeURIComponent(origin)}&affiliate_id=${AFF_ID}&sub_id=githubtool`;
+        let origin = "https://shopee.vn/product/" + shopid + "/" + itemid;
+        return "https://s.shopee.vn/an_redir?origin_link=" + origin + "&affiliate_id=" + AFF_ID + "&sub_id=githubtool";
     }
     return null;
 }
@@ -121,44 +116,34 @@ function buildAffiliateLink(link) {
 async function convert() {
     let input = document.getElementById("link").value.trim();
     if (!input) return;
-
     let btn = document.getElementById("go-btn");
     btn.disabled = true;
     btn.innerText = "Đang xử lý...";
     document.getElementById("err").style.display = "none";
-
     let finalLink = "";
-
-    // Nếu là link rút gọn vn.shp.ee -> Phải nhờ Google Script giải mã
     if (input.includes("vn.shp.ee")) {
         try {
             const res = await fetch(GOOGLE_SCRIPT_URL + "?short_url=" + encodeURIComponent(input));
             const data = await res.json();
             document.getElementById("convert-count").innerText = data.total_conversions;
-            finalLink = buildAffiliateLink(data.long_url);
-        } catch (e) {
-            alert("Lỗi kết nối Server giải mã!");
-        }
+            finalLink = buildRawLink(data.long_url);
+        } catch (e) {}
     } 
-    // Nếu là link đã có định dạng s.shopee.vn -> Giữ nguyên hoặc xử lý lại nếu cần
     else if (input.includes("s.shopee.vn")) {
         finalLink = input;
     }
-    // Link shopee.vn bình thường -> Xử lý trực tiếp và gửi đếm ngầm
     else {
-        finalLink = buildAffiliateLink(input);
-        fetch(GOOGLE_SCRIPT_URL + "?short_url=count_only"); // Tăng bộ đếm ngầm
+        finalLink = buildRawLink(input);
+        fetch(GOOGLE_SCRIPT_URL + "?short_url=count_only"); 
     }
-
     if (finalLink) {
         document.getElementById("result").value = finalLink;
         document.getElementById("result-area").style.display = "block";
         doCopy();
     } else {
-        document.getElementById("err").innerText = "⚠️ Không nhận diện được ShopID/ItemID trong link này.";
         document.getElementById("err").style.display = "block";
+        document.getElementById("err").innerText = "⚠️ Link không hợp lệ.";
     }
-    
     btn.disabled = false;
     btn.innerText = "Tạo link ngay";
 }
@@ -173,8 +158,7 @@ function doCopy() {
 
 async function doPaste() {
     try {
-        const text = await navigator.clipboard.readText();
-        document.getElementById("link").value = text;
+        document.getElementById("link").value = await navigator.clipboard.readText();
     } catch (e) {}
 }
 </script>
